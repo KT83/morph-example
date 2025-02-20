@@ -17,7 +17,8 @@ def example_chart(context: MorphGlobalContext):
         fig = px.bar(df, x="data", y="traffic", color="source", barmode="stack")
     elif chart_type == "area":
         fig = px.area(df, x="data", y="traffic", color="source")
-    return fig
+    return HtmlResponse(fig.to_html())
+
 
 
 @morph.func
